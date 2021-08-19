@@ -353,8 +353,9 @@ class MediaHelper
 				}
 			}
 		}
+		// TODO: Refactor XSS Check
+		$xss_check = file_get_contents($file['tmp_name'], false, null, 0, $file['size'] );
 
-		$xss_check = file_get_contents($file['tmp_name'], false, null, -1, 256);
 
 		$html_tags = array(
 			'abbr', 'acronym', 'address', 'applet', 'area', 'audioscope', 'base', 'basefont', 'bdo', 'bgsound', 'big', 'blackface', 'blink',
